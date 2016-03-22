@@ -14,6 +14,10 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 var dc = {};
 
 var homeHtml = "snippets/home-snippet.html";
+var allCategoriesUrl = 
+  "http://davids-restaurant.herokuapp.com/categories.json";
+var categoriesTitleHtml = "snippets/categories-title-snippet.html";
+var categoryHtml = "snippets/category-snippet.html";
 
 // Convinience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -37,6 +41,7 @@ var insertProperty = function (string, propName, propValue) {
   return string;
 }
 
+
 // On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
   
@@ -51,9 +56,6 @@ $ajaxUtils.sendGetRequest(
   false);
 });
 
-
-
-
 // Load the menu categories view
 dc.loadMenuCategories = function () {
   showLoading("#main-content");
@@ -61,7 +63,6 @@ dc.loadMenuCategories = function () {
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
 };
-
 
 // Builds HTML for the categiries page based on the data
 // from the server
@@ -84,7 +85,6 @@ function buildAndShowCategoriesHTML (categories) {
     },
     false);
 }
-
 
 // Using categories data and snippets html
 // build categories view HTML to be inserted into page
@@ -113,6 +113,11 @@ function buildCategoriesViewHtml(categories,
   finalHtml += "</section>";
   return finalHtml;
 }
+
+
+
+
+
 
 global.$dc = dc;
 
