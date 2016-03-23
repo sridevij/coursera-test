@@ -103,7 +103,7 @@ function buildAndShowHomeHTML (categories) {
     homeHtmlUrl,
     function (homeHtml) {
       var randomCategory= chooseRandomCategory(categories);
-      var chosenCategoryShortName="'"+randomCategory+"'";
+      var chosenCategoryShortName="'"+randomCategory.short_name+"'";
                   
        console.log("chosenCategoryShortName = "+chosenCategoryShortName);
   //  showLoading("#main-content");
@@ -117,11 +117,8 @@ function buildAndShowHomeHTML (categories) {
   //                                   categoryHtml);
   //         insertHtml("#main-content", categoriesViewHtml);
              
-   var homeHtmlToInsertIntoMainPage=function(responseText){
-    document.querySelector("#main-content")
-      .innerHTML = responseText;
-   }
-    console.log("homeHtmlToInsertIntoMainPage"+homeHtmlToInsertIntoMainPage);
+   var homeHtmlToInsertIntoMainPage=homeHtmlUrl;
+    console.log("homeHtmlToInsertIntoMainPage = "+homeHtmlToInsertIntoMainPage);
     var finalhtml=insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", chosenCategoryShortName);
     
 
