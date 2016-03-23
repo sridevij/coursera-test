@@ -117,9 +117,12 @@ function buildAndShowHomeHTML (categories) {
   //                                   categoryHtml);
   //         insertHtml("#main-content", categoriesViewHtml);
              
-  
-
-    var finalhtml=insertProperty(homeHtmlUrl, "randomCategoryShortName", chosenCategoryShortName);
+   var homeHtmlToInsertIntoMainPage=function(responseText){
+    document.querySelector("#main-content")
+      .innerHTML = responseText;
+   }
+    console.log("homeHtmlToInsertIntoMainPage"+homeHtmlToInsertIntoMainPage);
+    var finalhtml=insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", chosenCategoryShortName);
     
 
      console.log("finalhtml = "+finalhtml);
