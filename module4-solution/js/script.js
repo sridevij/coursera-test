@@ -237,6 +237,7 @@ function buildCategoriesViewHtml(categories,
 // from the server
 function buildAndShowMenuItemsHTML (categoryMenuItems) {
   // Load title snippet of menu items page
+  console.log("buildAndShowMenuItemsHTML arg ="+categoryMenuItems)
   $ajaxUtils.sendGetRequest(
     menuItemsTitleHtml,
     function (menuItemsTitleHtml) {
