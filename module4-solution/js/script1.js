@@ -70,6 +70,7 @@ $ajaxUtils.sendGetRequest(
   function (responseText) {
     document.querySelector("#main-content")
       .innerHTML = responseText;
+      console.log("responcetext ="+responcetext);
   }, 
   false);
 });
@@ -89,6 +90,13 @@ dc.loadMenuItems = function (categoryShort) {
   $ajaxUtils.sendGetRequest(
     menuItemsUrl + categoryShort,
     buildAndShowMenuItemsHTML);
+};
+
+dc.loadMenuItems = function (chooseRandomCategory) {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    allCategoriesUrl,
+    buildAndShowHomeHTML,true);
 };
 
 // Builds HTML for the categiries page based on the data
