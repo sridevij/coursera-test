@@ -70,7 +70,7 @@ $ajaxUtils.sendGetRequest(
   function (responseText) {
     document.querySelector("#main-content")
       .innerHTML = responseText;
-      console.log("responcetext ="+responcetext);
+      console.log("responcetext ="+responseText);
   }, 
   false);
 });
