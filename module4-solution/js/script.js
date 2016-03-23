@@ -103,7 +103,7 @@ function buildAndShowHomeHTML (categories) {
     homeHtmlUrl,
     function (homeHtml) {
       var randomCategory= chooseRandomCategory(categories);
-      var chosenCategoryShortName='"'+randomCategory+'"';
+      var chosenCategoryShortName=randomCategory.short_name;
                   
        console.log("chosenCategoryShortName = "+chosenCategoryShortName);
   //  showLoading("#main-content");
@@ -119,8 +119,8 @@ function buildAndShowHomeHTML (categories) {
              
   
 
-    var html=insertProperty(homeHtmlUrl, "randomCategoryShortName", chosenCategoryShortName);
-    var finalhtml='"'+html+'"';
+    var finalhtml=insertProperty(homeHtmlUrl, "randomCategoryShortName", chosenCategoryShortName);
+    
 
      console.log("finalhtml = "+finalhtml);
     insertHtml("#main-content", finalhtml);
