@@ -26,6 +26,7 @@ var menuItemHtml = "snippets/menu-item.html";
 // Convinience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
   var targetElem = document.querySelector(selector);
+
   targetElem.innerHTML = html;
 };
 
@@ -44,6 +45,7 @@ var insertProperty = function (string, propName, propValue) {
     .replace(new RegExp(propToReplace, "g"), propValue);
     console.log("propertyname = "+propName);
     console.log("propValue ="+propValue);
+    console.log("string ="+string)
   return string;
 }
 
@@ -102,7 +104,7 @@ function buildAndShowHomeHTML (categories) {
     function (homeHtml) {
       var randomCategory= chooseRandomCategory(categories);
       var chosenCategoryShortName="'"+randomCategory+"'";
-   
+                  
        console.log("chosenCategoryShortName = "+chosenCategoryShortName);
   //  showLoading("#main-content");
   // // Load home snippet page
