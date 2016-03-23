@@ -94,20 +94,13 @@ $ajaxUtils.sendGetRequest(
 function buildAndShowHomeHTML (categories) {
 
    // On first load, show home view
-showLoading("#main-content");
-$ajaxUtils.sendGetRequest(
-  homeHtmlUrl, 
-  function (responseText) {
-    document.querySelector("#main-content")
-      .innerHTML = responseText;
-  }, 
-  false);
  //Load home snippet page
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
       var chosenCategoryShortName= chooseRandomCategory(categories);
    
+       console.log("chosenCategoryShortName = "+chosenCategoryShortName);
   //  showLoading("#main-content");
   // // Load home snippet page
   // $ajaxUtils.sendGetRequest(
@@ -158,8 +151,9 @@ html=insertProperty(homeHtmlUrl, "randomCategoryShortName", chosenCategoryShortN
 // Given array of category objects, returns a random category object.
 function chooseRandomCategory (categories) {
   // Choose a random index into the array (from 0 inclusively until array length (exclusively))
+  console.log("categories in chooseRandomCategory = "+categories)
   var randomArrayIndex = Math.floor(Math.random() * categories.length);
-  console.log( randomArrayIndex );
+  console.log(  "randomArrayIndex = " +randomArrayIndex );
   // return category object with that randomArrayIndex
   return categories[randomArrayIndex];
 }
