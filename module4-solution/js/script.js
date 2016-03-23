@@ -119,7 +119,7 @@ function buildAndShowHomeHTML (categories) {
              
    var homeHtmlToInsertIntoMainPage=homeHtmlUrl;
     console.log("homeHtmlToInsertIntoMainPage = "+homeHtmlToInsertIntoMainPage);
-    var finalhtml=insertProperty(homeHtmlToInsertIntoMainPage, "randomCategoryShortName", chosenCategoryShortName);
+    var finalhtml=insertProperty(homeHtml, "randomCategoryShortName", chosenCategoryShortName);
     
 
      console.log("finalhtml = "+finalhtml);
