@@ -103,7 +103,7 @@ function buildAndShowHomeHTML (categories) {
     homeHtmlUrl,
     function (homeHtml) {
       var randomCategory= chooseRandomCategory(categories);
-      String chosenCategoryShortName=randomCategory.toString();
+      var chosenCategoryShortName=randomCategory.toString();
                   
        console.log("chosenCategoryShortName = "+chosenCategoryShortName);
   //  showLoading("#main-content");
@@ -119,7 +119,7 @@ function buildAndShowHomeHTML (categories) {
              
   
 
-    String finalhtml=insertProperty(homeHtmlUrl, "randomCategoryShortName", chosenCategoryShortName);
+    var finalhtml=insertProperty(homeHtmlUrl, "randomCategoryShortName", chosenCategoryShortName);
     
 
      console.log("finalhtml = "+finalhtml);
