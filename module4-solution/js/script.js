@@ -113,7 +113,7 @@ function buildAndShowHomeHTML (categories) {
              
   
 
-html=insertProperty(homeHtmlUrl, randomCategoryShortName, chosenCategoryShortName.short_name);
+html=insertProperty(homeHtmlUrl, "randomCategoryShortName", chosenCategoryShortName.short_name);
 
     insertHtml("#main-content", chosenCategoryShortName);
 
