@@ -105,17 +105,8 @@ function buildAndShowHomeHTML (categories) {
       var randomCategory= chooseRandomCategory(categories);
       var chosenCategoryShortName="'"+randomCategory+"'";
                   
-       console.log("chosenCategoryShortName = "+chosenCategoryShortName);
-  //  showLoading("#main-content");
-  // // Load home snippet page
-  // $ajaxUtils.sendGetRequest(
-  //   homeHtmlUrl,
-  //   function (homeHtml) {
-  //      var chosenCategoryShortName = 
-  //           buildCategoriesViewHtml(categories, 
-  //                                   categoriesTitleHtml,
-  //                                   categoryHtml);
-  //         insertHtml("#main-content", categoriesViewHtml);
+       console.log("chosenCategoryShortName = "+chosenCategoryShortName.short_name);
+  
              
    var homeHtmlToInsertIntoMainPage=homeHtmlUrl;
     console.log("homeHtmlToInsertIntoMainPage = "+homeHtmlToInsertIntoMainPage);
