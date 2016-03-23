@@ -92,16 +92,26 @@ $ajaxUtils.sendGetRequest(
 // Builds HTML for the home page based on categories array
 // returned from the server.
 function buildAndShowHomeHTML (categories) {
-   showLoading("#main-content");
-  // Load home snippet page
-  $ajaxUtils.sendGetRequest(
-    homeHtmlUrl,
-    function (homeHtml) {
-       var chosenCategoryShortName = 
-            buildCategoriesViewHtml(categories, 
-                                    categoriesTitleHtml,
-                                    categoryHtml);
-          insertHtml("#main-content", categoriesViewHtml);
+
+
+  showLoading("#main-content");
+$ajaxUtils.sendGetRequest(
+  homeHtml, 
+  function (responseText) {
+    document.querySelector("#main-content")
+      .innerHTML = responseText;
+  }, 
+  false);
+  //  showLoading("#main-content");
+  // // Load home snippet page
+  // $ajaxUtils.sendGetRequest(
+  //   homeHtmlUrl,
+  //   function (homeHtml) {
+  //      var chosenCategoryShortName = 
+  //           buildCategoriesViewHtml(categories, 
+  //                                   categoriesTitleHtml,
+  //                                   categoryHtml);
+  //         insertHtml("#main-content", categoriesViewHtml);
              
   
 
@@ -134,8 +144,8 @@ function buildAndShowHomeHTML (categories) {
       // of how to do that. 
       // ....
       
-    },
-    false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
+    // },
+    // false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
 
 
