@@ -96,7 +96,7 @@ function buildAndShowHomeHTML (categories) {
    // On first load, show home view
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
-  homeHtml, 
+  homeHtmlurl, 
   function (responseText) {
     document.querySelector("#main-content")
       .innerHTML = responseText;
