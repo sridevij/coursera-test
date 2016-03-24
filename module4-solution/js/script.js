@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl, 
-  buildAndShowHomeHTML(allCategoriesUrl),//, // ***** <---- TODO: STEP 1: Substitute [...] ******
+  buildAndShowHomeHTML,//, // ***** <---- TODO: STEP 1: Substitute [...] ******
   true); // Explicitely setting the flag to get JSON from server processed into an object literal
 });
 // *** finish **
@@ -102,9 +102,10 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-      var randomCategory= chooseRandomCategory(categories).short_name;
+      var randomCategory= chooseRandomCategory(categories);
+      var short_name=randomCategory.short_name;
       console.log("randomCategory ="+randomCategory)
-      var chosenCategoryShortName="'"+randomCategory+"'";
+      var chosenCategoryShortName="'"+short_name+"'";
                   
        console.log("chosenCategoryShortName = "+chosenCategoryShortName);
   
@@ -138,7 +139,7 @@ function buildAndShowHomeHTML (categories) {
       
 
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
-      // Use the existing insertHtml function for that purpose. Look through this code for an example
+      // Use the existing insertHtml function for that purpose. Look through this code for an example 
       // of how to do that. 
       // ....
       
