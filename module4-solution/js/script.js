@@ -102,7 +102,7 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-      var randomCategory[]= chooseRandomCategory(categories);
+      var randomCategory= chooseRandomCategory(categories).short_name;
       console.log("randomCategory ="+randomCategory)
       var chosenCategoryShortName="'"+randomCategory+"'";
                   
@@ -154,6 +154,7 @@ function chooseRandomCategory (categories) {
   var randomArrayIndex = Math.floor(Math.random() * categories.length);
   console.log(  "randomArrayIndex = " +randomArrayIndex );
   // return category object with that randomArrayIndex
+  console.log(categories[randomArrayIndex])
   return categories[randomArrayIndex];
 }
 
