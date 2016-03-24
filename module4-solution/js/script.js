@@ -43,9 +43,7 @@ var insertProperty = function (string, propName, propValue) {
   var propToReplace = "{{" + propName + "}}";
   string = string
     .replace(new RegExp(propToReplace, "g"), propValue);
-    console.log("propertyname = "+propName);
-    console.log("propValue ="+propValue);
-    console.log("string ="+string)
+    
   return string;
 }
 
@@ -102,27 +100,14 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-      var randomCategory= chooseRandomCategory(categories);
-      var short_name=randomCategory.short_name;
-      console.log("randomCategory ="+randomCategory)
-      var chosenCategoryShortName="'"+short_name+"'";
-                  
-       console.log("chosenCategoryShortName = "+chosenCategoryShortName);
-  
-             
-   var homeHtmlToInsertIntoMainPage=homeHtmlUrl;
-    console.log("homeHtmlToInsertIntoMainPage = "+homeHtmlToInsertIntoMainPage);
-    var finalhtml=insertProperty(homeHtml, "randomCategoryShortName", chosenCategoryShortName);
     
-
-     console.log("finalhtml = "+finalhtml);
-    insertHtml("#main-content", finalhtml);
-
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
       // var chosenCategoryShortName = ....
-      
+      var randomCategory= chooseRandomCategory(categories);
+      var short_name=randomCategory.short_name;
+      var chosenCategoryShortName="'"+short_name+"'";
 
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2. Use existing insertProperty function for that purpose.
@@ -137,12 +122,12 @@ function buildAndShowHomeHTML (categories) {
       // 
       // var homeHtmlToInsertIntoMainPage = ....
       
-
+      var finalhtml=insertProperty(homeHtml, "randomCategoryShortName", chosenCategoryShortName);
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
       // Use the existing insertHtml function for that purpose. Look through this code for an example 
       // of how to do that. 
       // ....
-      
+      insertHtml("#main-content", finalhtml);
      },
      false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
@@ -151,12 +136,10 @@ function buildAndShowHomeHTML (categories) {
 // Given array of category objects, returns a random category object.
 function chooseRandomCategory (categories) {
   // Choose a random index into the array (from 0 inclusively until array length (exclusively))
-  console.log("categories in chooseRandomCategory = "+categories)
-  var randomArrayIndex = Math.floor(Math.random() * categories.length);
-  console.log(  "randomArrayIndex = " +randomArrayIndex );
+    var randomArrayIndex = Math.floor(Math.random() * categories.length);
+  
   // return category object with that randomArrayIndex
-  console.log(categories[randomArrayIndex])
-  return categories[randomArrayIndex];
+    return categories[randomArrayIndex];
 }
 
 
@@ -172,7 +155,6 @@ dc.loadMenuCategories = function () {
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
 dc.loadMenuItems = function (categoryShort) {
-   console.log("loadMenuItems arg="+categoryShort)
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     menuItemsUrl + categoryShort,
@@ -240,8 +222,7 @@ function buildCategoriesViewHtml(categories,
 // from the server
 function buildAndShowMenuItemsHTML (categoryMenuItems) {
   // Load title snippet of menu items page
-  console.log("buildAndShowMenuItemsHTML arg ="+categoryMenuItems)
-  $ajaxUtils.sendGetRequest(
+    $ajaxUtils.sendGetRequest(
     menuItemsTitleHtml,
     function (menuItemsTitleHtml) {
       // Retrieve single menu item snippet
@@ -255,8 +236,7 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
             buildMenuItemsViewHtml(categoryMenuItems, 
                                    menuItemsTitleHtml,
                                    menuItemHtml);
-            console.log(menuItemsViewHtml);
-          insertHtml("#main-content", menuItemsViewHtml);
+            insertHtml("#main-content", menuItemsViewHtml);
         },
         false);
     },
