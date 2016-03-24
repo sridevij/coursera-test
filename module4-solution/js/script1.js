@@ -103,6 +103,7 @@ dc.loadMenuItems = function (chooseRandomCategory) {
 // from the server
 function buildAndShowCategoriesHTML (categories) {
   // Load title snippet of categories page
+ console.log("categories = "+categories);
   $ajaxUtils.sendGetRequest(
     categoriesTitleHtml,
     function (categoriesTitleHtml) {
