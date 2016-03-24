@@ -173,7 +173,7 @@ dc.loadMenuItems = function (categoryShort) {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     menuItemsUrl + categoryShort,
-    buildAndShowMenuItemsHTML,true);
+    buildAndShowMenuItemsHTML);
 };
 
 
@@ -252,6 +252,7 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
             buildMenuItemsViewHtml(categoryMenuItems, 
                                    menuItemsTitleHtml,
                                    menuItemHtml);
+            console.log(menuItemsViewHtml);
           insertHtml("#main-content", menuItemsViewHtml);
         },
         false);
